@@ -1,0 +1,44 @@
+{% extends "user_feedback/base.html" %}
+
+{% block content %}
+    <h1 class="title">{{ user.get_username }}</h1>
+    {% if feedbacks|length > 0 %}
+        {% for feedback in feedbacks %}
+            <div class="feedback block">
+                <a href="{% url 'user_detail' feedback.author %}"><strong>{{ feedback.author }}</strong></a><small> {{ feedback.date_added }}</small>
+                <p>{{ feedback.body }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="feedback block">
+            <p>This user does not have any feedbacks yet.</p>
+        </div>
+    {% endif %}
+
+    <hr>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h2 class="subtitle">Add feedback</h2>
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        <style>
+            label[for="id_body"] { display:none; }
+        </style>
+
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-success">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,34 +1,34 @@
-# user_feedback
-User Feedback RESTful API
+# User Feedback RESTful API
 
 How to:
-* Install python 3 and Pip.
-* Run “pip install django” on CMD to install Django.
-* Run “pip install djangorestframework” on CMD to install Django Rest Framework.
-* Run “pip install drf_yasg” on CMD to install Yet another Swagger generator.
-* In project folder run “python manage.py runserver” in CMD to start the server.
-* Enter the provided url in your browser of choice. http://127.0.0.1:8000/. The web interface can be used here.
-* I’ve included a premade admin account “admin” with password “admin”.
-* http://127.0.0.1:8000/api/ has all the endpoints listed as drf_yasg generated Swagger documentation. The POST endpoints require the parameters in json format.
-- /delete_user/
+1. Install python 3 and Pip.
+2. Run “pip install django” on CMD to install Django.
+3. Run “pip install djangorestframework” on CMD to install Django Rest Framework.
+4. Run “pip install drf_yasg” on CMD to install Yet another Swagger generator.
+5. In project folder run “python manage.py runserver” in CMD to start the server.
+6. Enter the provided url in your browser of choice. http://127.0.0.1:8000/. The web interface can be used here.
+7. I’ve included a premade admin account “admin” with password “admin”.
+8. http://127.0.0.1:8000/api/ has all the endpoints listed as drf_yasg generated Swagger documentation. The POST endpoints require the parameters in json format.
+
+- /delete_user/ -
 Requires “id” of the user you want to delete. Requires you to be logged in as an admin.
-- /feedbacks/
+- /feedbacks/ -
 Returns all feedbacks.
-- /feedbacks/{id}
+- /feedbacks/{id} -
 Returns a feedback.
-- /login/
+- /login/ -
 Log in as user. Requires “username” and “password”.
-- /logout/
+- /logout/ -
 Log out from user.
-- /new_feedback/
+- /new_feedback/ -
 Requires “body” and “owner” (owner as id). Requires you to be logged in.
-- /signup/
+- /signup/ -
 Requires “username”, “password1” and “password2”. Creates new user.
-- /users/
+- /users/ -
 Returns all users and their ids.
-- /users/{id}/
+- /users/{id}/ -
 Returns a user.
-- /users/{id}/feedbacks/
+- /users/{id}/feedbacks/ -
 Returns all feedbacks of a user.
 
 Example:
